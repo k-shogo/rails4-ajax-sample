@@ -3,6 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
+  $('.best_in_place').best_in_place()
   $('#items')
     .on 'ajax:complete', (event, ajax, status) ->
       response = $.parseJSON(ajax.responseText)
