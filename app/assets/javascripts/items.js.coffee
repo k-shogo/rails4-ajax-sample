@@ -11,7 +11,7 @@ $ ->
       $('#items_list').append html
       # フォームを初期化
       $('#new_item')[0].reset()
-  $('#nyans')
-    .on 'ajax:complete', '.delete_nyan', (event, ajax, status) ->
+  $('#items')
+    .on 'ajax:complete', '.delete_item', (event, ajax, status) ->
       # 項目を削除
-      $(this).closest('.nyan').remove()
+      $(this).closest('.item').remove()

@@ -1,0 +1,9 @@
+%tr.item
+  %td= item.name
+  %td= link_to 'Show', item
+  %td= link_to 'Edit', edit_item_path(item)
+  %td= link_to 'Destroy', item,
+    method: :delete,
+    remote: true,
+    data: { confirm: 'Are you sure?' },
+    class: 'delete_item'
