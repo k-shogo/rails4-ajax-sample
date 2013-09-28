@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
   # GET /items.json
   def index
     @items = Item.all
+    @item = Item.new
   end
 
   # GET /items/1
@@ -30,6 +31,10 @@ class ItemsController < ApplicationController
       if @item.save
         format.html { redirect_to @item, notice: 'Item was successfully created.' }
         format.json { render action: 'show', status: :created, location: @item }
+        format.js {
+          html = render_to_string partial: 'item', locals: { item: @item }
+          render json: {data: @item, status: :created, html: html}
+        }
       else
         format.html { render action: 'new' }
         format.json { render json: @item.errors, status: :unprocessable_entity }
